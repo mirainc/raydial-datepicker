@@ -39,7 +39,7 @@ export const CALENDAR_SIZE = 42;
 // as described in Tailwind documentation https://tailwindcss.com/docs/content-configuration#dynamic-class-names
 export const BG_COLOR: Colors = {
     100: {
-        blue: "bg-blue-100",
+        blue: "bg-primary",
         orange: "bg-orange-100",
         yellow: "bg-yellow-100",
         red: "bg-red-100",
@@ -96,7 +96,7 @@ export const BG_COLOR: Colors = {
         rose: "bg-rose-500"
     },
     hover: {
-        blue: "hover:bg-blue-600",
+        blue: "hover:bg-primary",
         orange: "hover:bg-orange-600",
         yellow: "hover:bg-yellow-600",
         red: "hover:bg-red-600",
@@ -118,7 +118,7 @@ export const BG_COLOR: Colors = {
 
 export const TEXT_COLOR: Colors = {
     500: {
-        blue: "text-blue-500",
+        blue: "text-primary",
         orange: "text-orange-500",
         yellow: "text-yellow-500",
         red: "text-red-500",

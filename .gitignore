@@ -3,7 +3,6 @@
 # dependencies
 /node_modules/
 /package-lock.json
-/yarn.lock
 /.next/
 /.rollup.cache/
 
@@ -31,3 +30,4 @@ yarn-error.log*
 
 .vscode
 .idea
+.prettierrc

@@ -1,0 +1,41 @@
+name: Build, Test and Deploy
+
+on: push
+
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  build-test-deploy:
+    name: Build, Test and Deploy
+    runs-on: ubuntu-latest
+    # These permissions are needed to get a token from the Github OIDC provider.
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Setup node is supposed to generate this file for us but for some reason
+      # publish fails with "No token found" unless we create our own at the root repo.
+      # Setup node won't generate an npmrc file if one already exists.
+      - name: Generate .npmrc
+        run: |
+          cat << EOF > ${GITHUB_WORKSPACE}/.npmrc
+          //registry.npmjs.org/:_authToken=\${NODE_AUTH_TOKEN}
+          registry=https://registry.npmjs.org/
+          always-auth=true
+          EOF
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Publish to NPM
+        run: yarn deploy
+        if: github.ref == 'refs/heads/main'

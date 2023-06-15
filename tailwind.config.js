@@ -4,5 +4,5 @@ module.exports = {
     darkMode: "media",
     theme: {},
     variants: {},
-    plugins: [require("@tailwindcss/forms")]
+    plugins: [require("@tailwindcss/forms"), require('raydiant-tailwind')]
 };
