@@ -31,4 +31,4 @@ yarn-error.log*
 
 .vscode
 .idea
-src/components/Calendar/Days.tsx
+.prettierrc
