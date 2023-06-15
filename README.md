@@ -1,4 +1,4 @@
-# React Tailwindcss Datepicker
+# Raydial Datepicker
 
 <p align="center">
     <a href="https://react-tailwindcss-datepicker.vercel.app/" target="_blank">
