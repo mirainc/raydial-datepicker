@@ -6,23 +6,23 @@ const packageJson = require("./package.json");
 const options = require("./tsconfig.json");
 
 module.exports = {
-    input: "src/index.tsx",
-    output: [
-        {
-            file: packageJson.main,
-            format: "cjs",
-            exports: "auto",
-            sourcemap: true,
-            inlineDynamicImports: true
-        },
-        {
-            file: packageJson.module,
-            format: "esm",
-            exports: "auto",
-            sourcemap: true,
-            inlineDynamicImports: true
-        }
-    ],
-    external: ["react", "dayjs"],
-    plugins: [resolve(), commonjs(), typescript({ ...options.compilerOptions, jsx: "react" })]
+  input: "src/index.tsx",
+  output: [
+    {
+      file: packageJson.main,
+      format: "cjs",
+      exports: "auto",
+      sourcemap: true,
+      inlineDynamicImports: true
+    },
+    {
+      file: packageJson.module,
+      format: "esm",
+      exports: "auto",
+      sourcemap: true,
+      inlineDynamicImports: true
+    }
+  ],
+  external: ["react", "dayjs"],
+  plugins: [resolve(), commonjs(), typescript({ ...options.compilerOptions, jsx: "react" })]
 };

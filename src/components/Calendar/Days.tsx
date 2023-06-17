@@ -88,7 +88,9 @@ const Days: React.FC<Props> = ({
 
       if (period.start && period.end) {
         if (dayjs(fullDay).isBetween(period.start, period.end, "day", "[)")) {
-          return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-sky-100 dark:bg-white/10`;
+          return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
+            day
+          )} bg-sky-100 dark:bg-white/10`;
         }
       }
 
@@ -97,11 +99,15 @@ const Days: React.FC<Props> = ({
       }
 
       if (period.start && dayjs(fullDay).isBetween(period.start, dayHover, "day", "[)")) {
-        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-sky-100 dark:bg-white/10`;
+        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
+          day
+        )} bg-sky-100 dark:bg-white/10`;
       }
 
       if (period.end && dayjs(fullDay).isBetween(dayHover, period.end, "day", "[)")) {
-        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-sky-100 dark:bg-white/10`;
+        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
+          day
+        )} bg-sky-100 dark:bg-white/10`;
       }
 
       if (dayHover === fullDay) {
@@ -324,10 +330,9 @@ const Days: React.FC<Props> = ({
   return (
     <div className="grid grid-cols-7 my-1">
       {calendarData.days.previous.map((item, index) => (
-        <div>
+        <div key={index}>
           <button
             type="button"
-            key={index}
             disabled={isDateDisabled(item, "previous")}
             className={`${buttonClass(item, "previous")}`}
             onClick={() => handleClickDay(item, "previous")}
@@ -341,10 +346,9 @@ const Days: React.FC<Props> = ({
       ))}
 
       {calendarData.days.current.map((item, index) => (
-        <div>
+        <div key={index}>
           <button
             type="button"
-            key={index}
             disabled={isDateDisabled(item, "current")}
             className={`${buttonClass(item, "current")}`}
             onClick={() => handleClickDay(item, "current")}
@@ -358,10 +362,9 @@ const Days: React.FC<Props> = ({
       ))}
 
       {calendarData.days.next.map((item, index) => (
-        <div>
+        <div key={index}>
           <button
             type="button"
-            key={index}
             disabled={isDateDisabled(item, "next")}
             className={`${buttonClass(item, "next")}`}
             onClick={() => handleClickDay(item, "next")}
