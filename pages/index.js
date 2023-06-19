@@ -53,6 +53,7 @@ export default function Playground() {
           primaryColor={primaryColor}
           onChange={handleChange}
           useRange={useRange}
+          showInput
           showFooter={showFooter}
           showShortcuts={showShortcuts}
           configs={{

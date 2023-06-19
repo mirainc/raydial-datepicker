@@ -19,6 +19,7 @@ const Datepicker: React.FC<DatepickerType> = ({
   onChange,
   useRange = true,
   showFooter = false,
+  showInput = true,
   showShortcuts = false,
   configs = undefined,
   asSingle = false,
@@ -246,6 +247,7 @@ const Datepicker: React.FC<DatepickerType> = ({
       changeInputText: (newText: string) => setInputText(newText),
       updateFirstDate: (newDate: dayjs.Dayjs) => firstGotoDate(newDate),
       changeDatepickerValue: onChange,
+      showInput,
       showFooter,
       placeholder,
       separator,
@@ -279,6 +281,7 @@ const Datepicker: React.FC<DatepickerType> = ({
     inputText,
     onChange,
     showFooter,
+    showInput,
     placeholder,
     separator,
     i18n,
@@ -314,7 +317,9 @@ const Datepicker: React.FC<DatepickerType> = ({
   return (
     <DatepickerContext.Provider value={contextValues}>
       <div className={containerClassNameOverload} ref={containerRef}>
-        <Input setContextRef={setInputRef} />
+        <div className="flex items-center gap-3">
+          {showInput && <Input setContextRef={setInputRef} />}
+        </div>
 
         <div
           className="transition-all ease-out duration-300 absolute z-10 mt-[1px] text-sm lg:text-xs 2xl:text-sm translate-y-4 opacity-0 hidden"
@@ -322,7 +327,7 @@ const Datepicker: React.FC<DatepickerType> = ({
         >
           <Arrow ref={arrowRef} />
 
-          <div className="mt-2.5 shadow-sm border border-gray-300 px-1 py-0.5 bg-white dark:bg-slate-800 dark:text-white dark:border-slate-600 rounded-lg">
+          <div className="mt-2.5 shadow-sm border border-gray-300 px-1 py-0.5 bg-white dark:bg-slate-800 dark:text-white dark:border-slate-600 rounded-xl">
             <div className="flex flex-col lg:flex-row py-2">
               {showShortcuts && <Shortcuts />}
 
