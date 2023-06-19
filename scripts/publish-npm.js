@@ -1,35 +1,35 @@
 #!/usr/bin/env node
 
-const semver = require('semver');
-const fs = require('fs');
-const childProcess = require('child_process');
-const process = require('process');
-const path = require('path');
+const childProcess = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const process = require("process");
+
+const semver = require("semver");
 
 // Usage: node publish-npm.js [dir-with-package-json]
 
 const run = async () => {
   const packageRelativePath = process.argv[2];
   const packagePath = path.resolve(process.cwd(), packageRelativePath);
-  const packageJsonPath = path.resolve(packagePath, 'package.json');
+  const packageJsonPath = path.resolve(packagePath, "package.json");
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath));
   const { name, version } = packageJson;
 
   // Detect if we are running this script using `yarn` or `npm`. If we try to run
   // npm publish using yarn it will fail with an obscure authentication error.
-  const useYarn = process.env.npm_execpath?.includes('yarn');
-  const npmCommand = useYarn ? 'yarn' : 'npm';
+  const useYarn = process.env.npm_execpath?.includes("yarn");
+  const npmCommand = useYarn ? "yarn" : "npm";
 
   let packageNotPublished = false;
-  let npmVersion = '';
+  let npmVersion = "";
   try {
-    console.info('Checking published version...');
+    console.info("Checking published version...");
 
     npmVersion = strip(
-      childProcess.execSync(
-        `${npmCommand} ${useYarn ? 'info' : 'view'} ${name} version`,
-        { encoding: 'utf8' }
-      )
+      childProcess.execSync(`${npmCommand} ${useYarn ? "info" : "view"} ${name} version`, {
+        encoding: "utf8"
+      })
     );
 
     // If the version is not published, this will throw an error.
@@ -39,7 +39,7 @@ const run = async () => {
     }
   } catch (err) {
     // Don't error if the package isn't published.
-    if (err.stderr.includes('404')) {
+    if (err.stderr.includes("404")) {
       packageNotPublished = true;
     } else {
       throw err;
@@ -47,12 +47,12 @@ const run = async () => {
   }
 
   if (packageNotPublished || semver.lt(npmVersion, version)) {
-    console.info('Publishing package...');
+    console.info("Publishing package...");
 
-    const spawn = childProcess.spawnSync(npmCommand, ['publish'], {
+    const spawn = childProcess.spawnSync(npmCommand, ["publish"], {
       cwd: packagePath,
       detached: true,
-      stdio: 'inherit',
+      stdio: "inherit"
     });
 
     // TODO: Checking spawn.stderr doesn't seem to work if npm publish fails.
@@ -62,16 +62,14 @@ const run = async () => {
 
     console.info(`Successfully published package ${name}@${version}.`);
   } else {
-    console.info(
-      `Skipping publish, package ${name}@${version} is already published.`
-    );
+    console.info(`Skipping publish, package ${name}@${version} is already published.`);
     console.info(`Bump the version in package.json and run again to upload.`);
   }
 };
 
-const strip = (str) => str.replace(/(\r\n|\n|\r)/gm, '');
+const strip = str => str.replace(/(\r\n|\n|\r)/gm, "");
 
-run().catch((err) => {
+run().catch(err => {
   console.error(err);
   process.exit(1);
 });

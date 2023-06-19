@@ -30,11 +30,14 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
+          cache: "yarn"
           node-version: 16
 
       - name: Install dependencies
         run: yarn install
+
+      - name: Build project
+        run: yarn build
 
       - name: Publish to NPM
         run: yarn deploy

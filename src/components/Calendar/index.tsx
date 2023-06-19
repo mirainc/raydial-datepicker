@@ -14,13 +14,7 @@ import {
   nextMonth,
   previousMonth
 } from "../../helpers";
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  DoubleChevronLeftIcon,
-  DoubleChevronRightIcon,
-  RoundedButton
-} from "../utils";
+import { ArrowLeftIcon, ArrowRightIcon, RoundedButton } from "../utils";
 
 import Days from "./Days";
 import Months from "./Months";
