@@ -60,13 +60,13 @@ const Days: React.FC<Props> = ({
       let className = "";
 
       if (dayjs(fullDay).isSame(period.start) && dayjs(fullDay).isSame(period.end)) {
-        className = ` ${BG_COLOR["500"][primaryColor]} text-white font-medium rounded-xl`;
+        className = ` ${BG_COLOR["500"][primaryColor]} bg-primary-light text-white rounded-xl`;
       } else if (dayjs(fullDay).isSame(period.start)) {
-        className = ` ${BG_COLOR["500"][primaryColor]} text-white font-medium ${
+        className = ` ${BG_COLOR["500"][primaryColor]} text-white ${
           dayjs(fullDay).isSame(dayHover) && !period.end ? "rounded-xl" : "rounded-xl"
         }`;
       } else if (dayjs(fullDay).isSame(period.end)) {
-        className = ` ${BG_COLOR["500"][primaryColor]} text-white font-medium ${
+        className = ` ${BG_COLOR["500"][primaryColor]} text-white ${
           dayjs(fullDay).isSame(dayHover) && !period.start ? "rounded-xl" : "rounded-xl"
         }`;
       }
@@ -90,7 +90,7 @@ const Days: React.FC<Props> = ({
         if (dayjs(fullDay).isBetween(period.start, period.end, "day", "[)")) {
           return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
             day
-          )} bg-sky-100 dark:bg-white/10`;
+          )} bg-primary-light dark:bg-white/10`;
         }
       }
 
@@ -101,13 +101,13 @@ const Days: React.FC<Props> = ({
       if (period.start && dayjs(fullDay).isBetween(period.start, dayHover, "day", "[)")) {
         className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
           day
-        )} bg-sky-100 dark:bg-white/10`;
+        )} bg-primary-light dark:bg-white/10`;
       }
 
       if (period.end && dayjs(fullDay).isBetween(dayHover, period.end, "day", "[)")) {
         className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
           day
-        )} bg-sky-100 dark:bg-white/10`;
+        )} bg-primary-light dark:bg-white/10`;
       }
 
       if (dayHover === fullDay) {

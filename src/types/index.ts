@@ -56,6 +56,7 @@ export interface DatepickerType {
   onChange: (value: DateValueType, e?: HTMLInputElement | null | undefined) => void;
   useRange?: boolean;
   showFooter?: boolean;
+  showInput?: boolean;
   showShortcuts?: boolean;
   configs?: Configs;
   asSingle?: boolean;

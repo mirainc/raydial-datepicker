@@ -259,7 +259,7 @@ const Calendar: React.FC<Props> = ({
         )}
 
         <div className="flex flex-1 items-center space-x-1.5 min-h-[30px]">
-          <div className="w-full justify-center flex items-center gap-1 font-semibold">
+          <div className="w-full justify-center flex items-center gap-3 font-semibold">
             <p
               className="cursor-pointer"
               onClick={() => {
