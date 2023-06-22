@@ -326,9 +326,6 @@ const Days: React.FC<Props> = ({
     ]
   );
 
-  console.log("activeDateData", activeDateData(calendarData.days.current[26])?.active);
-  console.log("hoverClassByDay", hoverClassByDay(calendarData.days.current[0]));
-
   return (
     <div className="grid grid-cols-7 my-1">
       {calendarData.days.previous.map((item, index) => (
