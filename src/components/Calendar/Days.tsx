@@ -348,7 +348,9 @@ const Days: React.FC<Props> = ({
         <div
           key={index}
           className={
-            activeDateData(item).active ? `active ${activeDateData(item).className}` : hoverClassByDay(item)
+            activeDateData(item).active
+              ? `active ${activeDateData(item).className}`
+              : hoverClassByDay(item)
           }
         >
           <button
