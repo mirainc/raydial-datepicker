@@ -8,6 +8,7 @@ interface IconProps {
 }
 
 interface Button {
+  className?: string;
   children: JSX.Element | JSX.Element[];
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
@@ -197,6 +198,7 @@ export const PrimaryButton: React.FC<Button> = ({ children, onClick, disabled = 
 };
 
 export const RoundedButton: React.FC<Button> = ({
+  className,
   children,
   onClick,
   disabled,
@@ -215,7 +217,7 @@ export const RoundedButton: React.FC<Button> = ({
     const buttonFocusColor = BUTTON_COLOR.focus[primaryColor as keyof typeof BUTTON_COLOR.focus];
     const disabledClass = disabled ? "line-through" : "";
 
-    return `${defaultClass} ${buttonFocusColor} ${disabledClass}`;
+    return `${defaultClass} ${buttonFocusColor} ${disabledClass} ${className}`;
   }, [disabled, padding, primaryColor, roundedFull]);
 
   return (

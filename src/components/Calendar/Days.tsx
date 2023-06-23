@@ -40,7 +40,6 @@ const Days: React.FC<Props> = ({
     maxDate,
     disabledDates
   } = useContext(DatepickerContext);
-
   // Functions
   const currentDateClass = useCallback(
     (item: number) => {
@@ -201,7 +200,7 @@ const Days: React.FC<Props> = ({
 
   const buttonClass = useCallback(
     (day: number, type: "current" | "next" | "previous") => {
-      const baseClass = "flex items-center justify-center w-12 h-12 lg:w-10 lg:h-10 font-bold";
+      const baseClass = "flex items-center justify-center w-12 h-12 lg:w-10 lg:h-10 font-bold day";
       if (type === "current") {
         return cn(
           baseClass,
@@ -346,7 +345,14 @@ const Days: React.FC<Props> = ({
       ))}
 
       {calendarData.days.current.map((item, index) => (
-        <div key={index}>
+        <div
+          key={index}
+          className={
+            activeDateData(item).active
+              ? `active ${activeDateData(item).className}`
+              : hoverClassByDay(item)
+          }
+        >
           <button
             type="button"
             disabled={isDateDisabled(item, "current")}

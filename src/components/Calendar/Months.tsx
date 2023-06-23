@@ -17,6 +17,7 @@ const Months: React.FC<Props> = ({ clickMonth }) => {
     <div className="w-full grid grid-cols-2 gap-2 mt-2">
       {MONTHS.map(item => (
         <RoundedButton
+          className="month"
           key={item}
           padding="py-3"
           onClick={() => {
