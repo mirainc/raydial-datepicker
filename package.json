@@ -62,7 +62,7 @@
     "next": "^13.1.1",
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
-    "raydiant-tailwind": "^1.0.10",
+    "raydiant-tailwind": "^1.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^2.77.2",

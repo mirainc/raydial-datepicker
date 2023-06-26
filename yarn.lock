@@ -2382,10 +2382,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-raydiant-tailwind@^1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/raydiant-tailwind/-/raydiant-tailwind-1.0.10.tgz#6ac983f76205d2ea1c5eca85594be077de476680"
-  integrity sha512-ujuHPbJjkXC71VIu26IIz7iCklTy+A2X48eanq9Nohrl1ZJ1pZ7j5FD4+m+Ym1LdLolmxvS8VJJeBPqXq+Wn4w==
+raydiant-tailwind@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/raydiant-tailwind/-/raydiant-tailwind-1.0.11.tgz#fcd7630f32055d1bfbda75fd8e7662ea78a6a7b4"
+  integrity sha512-fNAcfxj/+aHQOrtHvwKWMaPHWLeqGPhh4dv6S0VHOeaOgwuMu7h+QvlKCjiyGbVsV2OAFi0m7p/nLl5d8Sfi/Q==
   dependencies:
     npm-run-all "^4.1.5"
     run-p "^0.0.0"
