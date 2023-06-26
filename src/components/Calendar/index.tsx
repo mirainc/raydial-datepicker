@@ -236,7 +236,7 @@ const Calendar: React.FC<Props> = ({
 
   return (
     <div className="w-full md:w-[297px] md:min-w-[297px] calendar">
-      <div className="flex items-center space-x-1.5 rounded-md px-2 py-1.5 header">
+      <div className="flex items-center space-x-1.5 rounded-md px-2 py-1.5 calendar-header">
         {!showMonths && !showYears && (
           <div className="flex-none">
             <RoundedButton roundedFull={true} onClick={onClickPrevious}>
@@ -261,7 +261,7 @@ const Calendar: React.FC<Props> = ({
         <div className="flex flex-1 items-center space-x-1.5 min-h-[30px] label">
           <div className="w-full justify-center flex items-center gap-3 font-semibold">
             <p
-              className="cursor-pointer month"
+              className="cursor-pointer calendar-month"
               onClick={() => {
                 setShowMonths(!showMonths);
                 hideYears();
@@ -270,7 +270,7 @@ const Calendar: React.FC<Props> = ({
               {calendarData.date.locale(i18n).format("MMMM")}
             </p>
             <p
-              className="cursor-pointer year"
+              className="cursor-pointer calendar-year"
               onClick={() => {
                 setShowYears(!showYears);
                 hideMonths();
