@@ -15,7 +15,7 @@ const Years: React.FC<Props> = ({ year, minYear, maxYear, clickYear }) => {
     <div className="w-full grid grid-cols-2 gap-2 mt-2">
       {generateArrayNumber(year, year + 11).map((item, index) => (
         <RoundedButton
-          className="year"
+          className="calendar-year"
           key={index}
           padding="py-3"
           onClick={() => {
