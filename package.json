@@ -1,6 +1,6 @@
 {
   "name": "raydial-tailwind-datepicker",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A modern Datepicker for the Raydial component library using Tailwind CSS 3",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
