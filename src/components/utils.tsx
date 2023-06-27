@@ -218,7 +218,7 @@ export const RoundedButton: React.FC<Button> = ({
     const disabledClass = disabled ? "line-through" : "";
 
     return `${defaultClass} ${buttonFocusColor} ${disabledClass} ${className}`;
-  }, [disabled, padding, primaryColor, roundedFull]);
+  }, [className, disabled, padding, primaryColor, roundedFull]);
 
   return (
     <button type="button" className={getClassName()} onClick={onClick} disabled={disabled}>
