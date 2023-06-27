@@ -235,7 +235,7 @@ const Calendar: React.FC<Props> = ({
   );
 
   return (
-    <div className="w-full md:w-[297px] md:min-w-[297px] calendar">
+    <div className="w-full md:w-[297px] md:min-w-[297px] calendar-wrapper">
       <div className="flex items-center space-x-1.5 rounded-md px-2 py-1.5 calendar-header">
         {!showMonths && !showYears && (
           <div className="flex-none">

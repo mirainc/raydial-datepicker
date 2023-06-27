@@ -334,7 +334,7 @@ const Datepicker: React.FC<DatepickerType> = ({
               <div
                 className={`flex items-stretch flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-1.5 ${
                   showShortcuts ? "md:pl-2" : "md:pl-1"
-                } pr-2 lg:pr-1`}
+                } pr-2 lg:pr-1 calendar`}
               >
                 <Calendar
                   date={firstDate}
