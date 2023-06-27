@@ -200,8 +200,7 @@ const Days: React.FC<Props> = ({
 
   const buttonClass = useCallback(
     (day: number, type: "current" | "next" | "previous") => {
-      const baseClass =
-        "flex items-center justify-center w-12 h-12 font-bold calendar-day";
+      const baseClass = "flex items-center justify-center w-12 h-12 font-bold calendar-day";
       if (type === "current") {
         return cn(
           baseClass,
