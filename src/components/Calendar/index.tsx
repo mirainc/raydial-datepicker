@@ -239,7 +239,11 @@ const Calendar: React.FC<Props> = ({
       <div className="flex items-center space-x-1.5 rounded-md px-2 py-1.5 calendar-header">
         {!showMonths && !showYears && (
           <div className="flex-none">
-            <RoundedButton roundedFull={true} onClick={onClickPrevious}>
+            <RoundedButton
+              className="calender-header-previous"
+              roundedFull={true}
+              onClick={onClickPrevious}
+            >
               <ArrowLeftIcon className="h-4 w-4 text-gray-500" />
             </RoundedButton>
           </div>
@@ -248,6 +252,7 @@ const Calendar: React.FC<Props> = ({
         {showYears && (
           <div className="flex-none">
             <RoundedButton
+              className="calender-header-previous"
               roundedFull={true}
               onClick={() => {
                 setYear(year - 12);
@@ -284,6 +289,7 @@ const Calendar: React.FC<Props> = ({
         {showYears && (
           <div className="flex-none">
             <RoundedButton
+              className="calender-header-next"
               roundedFull={true}
               onClick={() => {
                 setYear(year + 12);
@@ -296,7 +302,11 @@ const Calendar: React.FC<Props> = ({
 
         {!showMonths && !showYears && (
           <div className="flex-none">
-            <RoundedButton roundedFull={true} onClick={onClickNext}>
+            <RoundedButton
+              className="calender-header-next"
+              roundedFull={true}
+              onClick={onClickNext}
+            >
               <ArrowRightIcon className="h-4 w-4 text-gray-500" />
             </RoundedButton>
           </div>

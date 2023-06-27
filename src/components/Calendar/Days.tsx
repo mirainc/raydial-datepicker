@@ -333,7 +333,11 @@ const Days: React.FC<Props> = ({
           <button
             type="button"
             disabled={isDateDisabled(item, "previous")}
-            className={`${buttonClass(item, "previous")}`}
+            className={cn(
+              buttonClass(item, "previous"),
+              isDateDisabled(item, "previous") ? "disabled" : "",
+              "calendar-day-previous"
+            )}
             onClick={() => handleClickDay(item, "previous")}
             onMouseOver={() => {
               hoverDay(item, "previous");
@@ -349,14 +353,17 @@ const Days: React.FC<Props> = ({
           key={index}
           className={
             activeDateData(item).active
-              ? `active ${activeDateData(item).className}`
-              : hoverClassByDay(item)
+              ? `calendar-day-active ${activeDateData(item).className}`
+              : `${hoverClassByDay(item)} calendar-day-selected`
           }
         >
           <button
             type="button"
             disabled={isDateDisabled(item, "current")}
-            className={`${buttonClass(item, "current")}`}
+            className={cn(
+              buttonClass(item, "current"),
+              isDateDisabled(item, "current") ? "disabled" : ""
+            )}
             onClick={() => handleClickDay(item, "current")}
             onMouseOver={() => {
               hoverDay(item, "current");
@@ -372,7 +379,11 @@ const Days: React.FC<Props> = ({
           <button
             type="button"
             disabled={isDateDisabled(item, "next")}
-            className={`${buttonClass(item, "next")}`}
+            className={cn(
+              buttonClass(item, "next"),
+              isDateDisabled(item, "next") ? "disabled" : "",
+              "calendar-day-next"
+            )}
             onClick={() => handleClickDay(item, "next")}
             onMouseOver={() => {
               hoverDay(item, "next");
