@@ -87,9 +87,7 @@ const Days: React.FC<Props> = ({
 
       if (period.start && period.end) {
         if (dayjs(fullDay).isBetween(period.start, period.end, "day", "[)")) {
-          return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
-            day
-          )} bg-primary-light`;
+          return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-primary-light`;
         }
       }
 
@@ -98,15 +96,11 @@ const Days: React.FC<Props> = ({
       }
 
       if (period.start && dayjs(fullDay).isBetween(period.start, dayHover, "day", "[)")) {
-        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
-          day
-        )} bg-primary-light`;
+        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-primary-light`;
       }
 
       if (period.end && dayjs(fullDay).isBetween(dayHover, period.end, "day", "[)")) {
-        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
-          day
-        )} bg-primary-light`;
+        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-primary-light`;
       }
 
       if (dayHover === fullDay) {
