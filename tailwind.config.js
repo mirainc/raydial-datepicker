@@ -9,13 +9,20 @@ module.exports = {
   plugins: [
     plugin(function ({ addComponents, theme }) {
       addComponents({
+        ".calendar-container": {},
+        ".calendar-popover-tail": {
+          border: "none"
+        },
         ".calendar": {
+          fontSize: theme("fontSize.base"),
           padding: `${theme("spacing.5")} !important`,
           ".calendar-wrapper": {
             minWidth: "100%",
             width: "100%",
             padding: `${theme("spacing.0")} !important`,
             ".calendar-header": {
+              fontSize: "inherit",
+              fontWeight: theme("fontWeight.semibold"),
               padding: `${theme("spacing.0")} !important`,
               ".calendar-wrapper": {
                 ".calendar-header-previous, .calendar-header-next": {
@@ -29,6 +36,7 @@ module.exports = {
                 borderRadius: theme("borderRadius.xl"),
                 "button.calendar-day": {
                   aspectRatio: "1/1",
+                  fontSize: "inherit",
                   width: `100% !important`,
                   height: `100% !important`,
                   "&.calendar-day-selected": {
@@ -55,6 +63,18 @@ module.exports = {
             },
             ".calendar-day-previous , .calendar-day-next": {
               color: theme("colors.stone.300")
+            },
+            ".calendar-month": {
+              fontSize: "inherit",
+              fontWeight: "inherit"
+            },
+            ".calendar-week": {
+              color: theme("colors.stone.300"),
+              fontSize: theme("fontSize.sm"),
+              fontWeight: theme("fontWeight.semibold")
+            },
+            ".calendar-year": {
+              fontSize: "inherit"
             }
           }
         },
