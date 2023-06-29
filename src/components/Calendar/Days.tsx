@@ -87,7 +87,7 @@ const Days: React.FC<Props> = ({
 
       if (period.start && period.end) {
         if (dayjs(fullDay).isBetween(period.start, period.end, "day", "[)")) {
-          return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-primary-light`;
+          return ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} calendar-day-selected`;
         }
       }
 
@@ -96,11 +96,15 @@ const Days: React.FC<Props> = ({
       }
 
       if (period.start && dayjs(fullDay).isBetween(period.start, dayHover, "day", "[)")) {
-        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-primary-light`;
+        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
+          day
+        )} calendar-day-selected`;
       }
 
       if (period.end && dayjs(fullDay).isBetween(dayHover, period.end, "day", "[)")) {
-        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(day)} bg-primary-light`;
+        className = ` ${BG_COLOR["100"][primaryColor]} ${currentDateClass(
+          day
+        )} calendar-day-selected`;
       }
 
       if (dayHover === fullDay) {
@@ -320,8 +324,22 @@ const Days: React.FC<Props> = ({
     ]
   );
 
+  const isStartDate = useCallback(
+    (day: number) => {
+      return dayjs(period.start).date() === day;
+    },
+    [period.start]
+  );
+
+  const isEndDate = useCallback(
+    (day: number) => {
+      return dayjs(period.end).date() === day;
+    },
+    [period.end]
+  );
+
   return (
-    <div className="grid grid-cols-7 my-1">
+    <div className="grid grid-cols-7 my-1 calendar-days">
       {calendarData.days.previous.map((item, index) => (
         <div key={index}>
           <button
@@ -345,11 +363,12 @@ const Days: React.FC<Props> = ({
       {calendarData.days.current.map((item, index) => (
         <div
           key={index}
-          className={
-            activeDateData(item).active
-              ? `calendar-day-active ${activeDateData(item).className}`
-              : `${hoverClassByDay(item)} calendar-day-selected`
-          }
+          className={cn(
+            "calendar-day-wrapper",
+            activeDateData(item).active ? `calendar-day-active` : ``,
+            isStartDate(item) && period.end ? "calendar-start-day" : "",
+            isEndDate(item) && period.start ? "calendar-end-day" : ""
+          )}
         >
           <button
             type="button"

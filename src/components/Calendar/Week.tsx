@@ -33,7 +33,7 @@ const Week: React.FC = () => {
   }, [startWeekOn]);
 
   return (
-    <div className="grid grid-cols-7 py-2">
+    <div className="grid grid-cols-7 py-2 calender-weeks">
       {DAYS.map(item => (
         <div key={item} className="tracking-wide text-gray-500 text-center calendar-week">
           {ucFirst(

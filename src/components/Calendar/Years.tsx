@@ -12,7 +12,7 @@ interface Props {
 
 const Years: React.FC<Props> = ({ year, minYear, maxYear, clickYear }) => {
   return (
-    <div className="w-full grid grid-cols-2 gap-2 mt-2">
+    <div className="calendar-years w-full grid grid-cols-2 gap-2 mt-2">
       {generateArrayNumber(year, year + 11).map((item, index) => (
         <RoundedButton
           className="calendar-year"
